@@ -19,7 +19,7 @@ interface FavoriteTvDao {
     @Query("DELETE FROM favorite_tv")
     fun deleteAllFavorites()
 
-    @Query("DELETE FROM favorite_tv WHERE id=:id")
-    fun deleteFavoriteTv(id: Int)
+    @Query("DELETE FROM favorite_tv WHERE uid=:uid")
+    fun deleteFavoriteTv(uid: Int)
 
 }

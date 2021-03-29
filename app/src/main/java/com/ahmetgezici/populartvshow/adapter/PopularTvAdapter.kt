@@ -1,12 +1,16 @@
 package com.ahmetgezici.populartvshow.adapter
 
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ahmetgezici.populartvshow.R
 import com.ahmetgezici.populartvshow.api.ApiClient
 import com.ahmetgezici.populartvshow.databinding.ItemPopularTvBinding
+import com.ahmetgezici.populartvshow.model.database.FavoriteTv
 import com.ahmetgezici.populartvshow.model.populartv.Results
+import com.ahmetgezici.populartvshow.viewmodel.PopularTvViewModel
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.like.LikeButton
@@ -15,7 +19,8 @@ import com.like.OnLikeListener
 
 class PopularTvAdapter(
     private val tvShowList: ArrayList<Results>,
-    private val starStateList: ArrayList<Boolean>
+    private var favoriteList: ArrayList<FavoriteTv>,
+    private val viewModel: PopularTvViewModel
 ) : RecyclerView.Adapter<PopularTvAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -42,20 +47,25 @@ class PopularTvAdapter(
             .transition(DrawableTransitionOptions.withCrossFade(300))
             .into(holder.binding.image)
 
+        val favoriteTv = FavoriteTv()
+        favoriteTv.uid = tvShow.id
 
-        holder.binding.star.isLiked = starStateList[holder.adapterPosition]
+        holder.binding.star.isLiked = favoriteList.contains(favoriteTv)
 
         holder.binding.star.setOnLikeListener(object : OnLikeListener {
             override fun liked(likeButton: LikeButton) {
 
-                starStateList[holder.adapterPosition] = true
+                Handler(Looper.getMainLooper()).postDelayed(Runnable {
+
+                    viewModel.addFavoriteRepoDB(favoriteTv)
+
+                }, 600)
 
             }
 
             override fun unLiked(likeButton: LikeButton) {
 
-                starStateList[holder.adapterPosition] = false
-
+                    viewModel.deleteFavoriteDB(tvShow.id)
             }
         })
 
@@ -69,12 +79,18 @@ class PopularTvAdapter(
     class ViewHolder(val binding: ItemPopularTvBinding) : RecyclerView.ViewHolder(binding.root)
 
 
-    fun addItem(newTvShowList: ArrayList<Results>, newStarStateList: ArrayList<Boolean>) {
+    fun addItem(newTvShowList: ArrayList<Results>) {
 
         tvShowList.addAll(newTvShowList)
-        starStateList.addAll(newStarStateList)
-
         notifyDataSetChanged()
+
+    }
+
+    fun changeDB(newFavoriteList: ArrayList<FavoriteTv>) {
+
+        favoriteList = newFavoriteList
+        notifyDataSetChanged()
+
     }
 
 }

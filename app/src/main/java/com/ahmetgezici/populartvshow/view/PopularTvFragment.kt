@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ahmetgezici.populartvshow.adapter.PopularTvAdapter
 import com.ahmetgezici.populartvshow.api.ApiClient
 import com.ahmetgezici.populartvshow.databinding.FragmentPopularTvBinding
+import com.ahmetgezici.populartvshow.model.database.FavoriteTv
 import com.ahmetgezici.populartvshow.model.populartv.PopularTv
 import com.ahmetgezici.populartvshow.utils.datautil.Resource
 import com.ahmetgezici.populartvshow.utils.datautil.Status
@@ -38,7 +39,6 @@ class PopularTvFragment : Fragment() {
 
         ////////////////////////////////////////////////////////////////////////////////////////////
 
-
         val apiKey = ApiClient.apiKey
         val language = "tr-TR"
         var page = 1
@@ -48,36 +48,40 @@ class PopularTvFragment : Fragment() {
 
                 if (popularTVRes != null) {
 
-                    if (popularTVRes.status == Status.LOADING) {
+                    if (popularTVRes.status == Status.LOADING) { ///////////////////////////////////
 
 
-                    } else if (popularTVRes.status == Status.SUCCESS) {
+                    } else if (popularTVRes.status == Status.SUCCESS) { ////////////////////////////
 
                         val popularTV = popularTVRes.data
                         val results = popularTV?.results
 
                         if (popularTV != null && results != null) {
 
-                            val starStateList = ArrayList<Boolean>()
-
-                            for (starStatus in results.indices) {
-                                starStateList.add(false)
-                            }
-
+                            val favoriteList = ArrayList<FavoriteTv>()
 
                             popularTvAdapter =
-                                PopularTvAdapter(results, starStateList)
+                                PopularTvAdapter(results, favoriteList, viewModel)
                             binding.popularTvRecycler.layoutManager =
                                 LinearLayoutManager(requireContext())
                             binding.popularTvRecycler.adapter = popularTvAdapter
 
+                            ////////////////////////////////////////////////////////////////////////
+
+                            viewModel.getFavoritesDB()?.observe(viewLifecycleOwner, Observer {
+
+                                popularTvAdapter.changeDB(it as ArrayList<FavoriteTv>)
+
+                            })
+
+                            ////////////////////////////////////////////////////////////////////////
 
                             viewModel.getPopularTv(apiKey, language, page).removeObserver(this)
 
                         }
 
 
-                    } else if (popularTVRes.status == Status.ERROR) {
+                    } else if (popularTVRes.status == Status.ERROR) { //////////////////////////////
 
                     }
                 }
@@ -100,27 +104,21 @@ class PopularTvFragment : Fragment() {
                     viewModel.getPopularTv(apiKey, language, page)
                         .observe(viewLifecycleOwner, { popularTVRes ->
 
-                            if (popularTVRes.status == Status.LOADING) {
+                            if (popularTVRes.status == Status.LOADING) { ///////////////////////////
 
 
-                            } else if (popularTVRes.status == Status.SUCCESS) {
+                            } else if (popularTVRes.status == Status.SUCCESS) { ////////////////////
 
                                 val popularTV = popularTVRes.data
                                 val results = popularTV?.results
 
                                 if (popularTV != null && results != null) {
 
-                                    val starStateList = ArrayList<Boolean>()
-
-                                    for (starStatus in results.indices) {
-                                        starStateList.add(false)
-                                    }
-
-                                    popularTvAdapter.addItem(results, starStateList)
+                                    popularTvAdapter.addItem(results)
 
                                 }
 
-                            } else if (popularTVRes.status == Status.ERROR) {
+                            } else if (popularTVRes.status == Status.ERROR) { //////////////////////
 
                             }
 

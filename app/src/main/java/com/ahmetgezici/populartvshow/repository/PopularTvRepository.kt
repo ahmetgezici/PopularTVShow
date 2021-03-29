@@ -10,7 +10,6 @@ import com.ahmetgezici.populartvshow.database.FavoriteTvDatabase
 import com.ahmetgezici.populartvshow.model.database.FavoriteTv
 import com.ahmetgezici.populartvshow.model.populartv.PopularTv
 import com.ahmetgezici.populartvshow.utils.datautil.Resource
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 
 class PopularTvRepository(application: Application) {
@@ -40,7 +39,6 @@ class PopularTvRepository(application: Application) {
 
         apiInterface.getPopularTV(apiKey, language, page)
             .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ popularTvList ->
                 liveData.postValue(Resource.success(popularTvList))
             }, { throwable ->

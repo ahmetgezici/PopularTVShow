@@ -10,7 +10,7 @@ data class FavoriteTv(
 
     @PrimaryKey
     @NonNull
-    @ColumnInfo(name = "id")
-    val id: Int = 0
+    @ColumnInfo(name = "uid")
+    var uid: Int = 0
 
 )
