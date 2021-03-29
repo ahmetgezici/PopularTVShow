@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         ////////////////////////////////////////////////////////////////////////////////////////////
 
-        val popularTVFragment = PopularTVFragment()
+        val popularTVFragment = PopularTvFragment()
 
         manager.beginTransaction()
             .setCustomAnimations(R.anim.fadein, R.anim.fadeout)

@@ -1,6 +1,6 @@
 package com.ahmetgezici.populartvshow.api
 
-import com.ahmetgezici.populartvshow.model.populartv.PopularTV
+import com.ahmetgezici.populartvshow.model.populartv.PopularTv
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -13,7 +13,7 @@ interface ApiInterface {
         @Query("api_key") apiKey: String,
         @Query("language") language: String,
         @Query("page") page: Int
-    ): Single<PopularTV>
+    ): Single<PopularTv>
 
     @GET("tv/{id}?")
     fun getDetails(

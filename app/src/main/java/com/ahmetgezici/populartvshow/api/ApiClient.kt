@@ -12,7 +12,11 @@ class ApiClient {
         private const val BaseUrl = "https://api.themoviedb.org/3/"
         private var retrofit: Retrofit? = null
 
-        val apiKey = "31764e19904c47ea051d1b1506a0c809"
+        const val apiKey = "31764e19904c47ea051d1b1506a0c809"
+
+        const val ImageUrl_original = "https://image.tmdb.org/t/p/original"
+        const val ImageUrl_w500 = "https://image.tmdb.org/t/p/w500"
+
 
         fun getClient(): Retrofit? {
 
