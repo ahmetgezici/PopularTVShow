@@ -54,6 +54,8 @@ class PopularTvFragment : Fragment() {
 
         ////////////////////////////////////////////////////////////////////////////////////////////
 
+        // Loading State
+
         viewModel.loading.observe(viewLifecycleOwner, {
             if (it) {
                 binding.loadingProgress.visibility = View.VISIBLE
@@ -65,6 +67,8 @@ class PopularTvFragment : Fragment() {
         })
 
         ////////////////////////////////////////
+
+        // New Page Loading State
 
         viewModel.newPageLoading.observe(viewLifecycleOwner, {
 
@@ -78,9 +82,13 @@ class PopularTvFragment : Fragment() {
 
         ////////////////////////////////////////////////////////////////////////////////////////////
 
+        // Get First Data
+
         getFirstData()
 
         ////////////////////////////////////////////////////////////////////////////////////////////
+
+        // Scroll Listener For the bottom
 
         val scrollListener = object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
@@ -134,9 +142,13 @@ class PopularTvFragment : Fragment() {
 
         ////////////////////////////////////////////////////////////////////////////////////////////
 
+        // Start Periodical Data
+
         startPeriodicalData()
 
         ////////////////////////////////////////////////////////////////////////////////////////////
+
+        // Delete All Favorites
 
         binding.allDelete.setOnClickListener(View.OnClickListener {
 
@@ -158,6 +170,8 @@ class PopularTvFragment : Fragment() {
     }
 
     ////////////////////////////////////
+
+    // Get First Data
 
     fun getFirstData() {
 
@@ -233,6 +247,8 @@ class PopularTvFragment : Fragment() {
     }
 
     ////////////////////////////////////
+
+    // Start Periodical Data
 
     private fun startPeriodicalData() {
 

@@ -41,14 +41,20 @@ class PopularTvAdapter(
 
         val tvShow = tvShowList[position]
 
+        ////////////
+
         holder.binding.name.text = tvShow.name
         holder.binding.overview.text = tvShow.overview
+
+        ////////////
 
         Glide.with(holder.itemView.context)
             .load(ApiClient.ImageUrl_w500 + tvShow.poster_path)
             .placeholder(R.drawable.placeholder)
             .transition(DrawableTransitionOptions.withCrossFade(300))
             .into(holder.binding.image)
+
+        ////////////
 
         val favoriteTv = FavoriteTv()
         favoriteTv.uid = tvShow.id
@@ -71,6 +77,8 @@ class PopularTvAdapter(
                 viewModel.deleteFavoriteDB(tvShow.id)
             }
         })
+
+        ////////////
 
         holder.binding.tvShow.setOnClickListener(View.OnClickListener {
 

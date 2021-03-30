@@ -21,6 +21,8 @@ class PopularTvViewModel(application: Application) : AndroidViewModel(applicatio
 
     ///////////
 
+    // Get Popular TV Show
+
     fun getPopularTv(
         apiKey: String,
         language: String,
@@ -34,11 +36,15 @@ class PopularTvViewModel(application: Application) : AndroidViewModel(applicatio
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // Database
 
+    // Add Favorite
+
     fun addFavoriteTvDB(favoriteTv: FavoriteTv) {
         repository.addFavoriteTvDB(favoriteTv)
     }
 
     /////////
+
+    // Get Favorites DB
 
     fun getFavoritesDB(): LiveData<List<FavoriteTv>>? {
         return repository.getFavoritesDB()
@@ -46,11 +52,15 @@ class PopularTvViewModel(application: Application) : AndroidViewModel(applicatio
 
     /////////
 
+    // Delete All DB
+
     fun deleteAllFavoritesDB() {
         repository.deleteAllFavoritesDB()
     }
 
     /////////
+
+    // Delete Favorite DB
 
     fun deleteFavoriteDB(id: Int) {
         repository.deleteFavoriteDB(id)

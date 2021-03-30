@@ -56,6 +56,8 @@ class DetailsFragment(
 
         ////////////////////////////////////////////////////////////////////////////////////////////
 
+        // Loading State
+
         viewModel.loading.observe(viewLifecycleOwner, {
             if (it) {
                 binding.loadingProgress.visibility = View.VISIBLE
@@ -67,6 +69,8 @@ class DetailsFragment(
         })
 
         ////////////////////////////////////////////
+
+        // Get Details
 
         val apiKey = ApiClient.apiKey
         val language = "tr-TR"
@@ -102,9 +106,13 @@ class DetailsFragment(
 
         ////////////////////////////////////////////
 
+        // Favorite State
+
         binding.favorite.isLiked = favoriteState
 
         ////////////////////////////////////////////
+
+        // İnitial View
 
         viewModel.detailsLiveData.observe(viewLifecycleOwner, { details ->
 
@@ -254,7 +262,7 @@ class DetailsFragment(
                 }
             })
 
-
+            ////////////
 
             viewModel.loading.postValue(false)
 

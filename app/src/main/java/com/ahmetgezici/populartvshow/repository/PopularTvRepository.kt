@@ -27,6 +27,8 @@ class PopularTvRepository(application: Application) {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
+    // Get Popular TV Show
+
     fun getPopularTv(
         apiKey: String,
         language: String,
@@ -49,7 +51,9 @@ class PopularTvRepository(application: Application) {
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
+    //Database
 
+    // Add Favorite
 
     fun addFavoriteTvDB(favoriteTv: FavoriteTv) {
 
@@ -63,6 +67,8 @@ class PopularTvRepository(application: Application) {
 
     //////////
 
+    // Get Favorites DB
+
     fun getFavoritesDB(): LiveData<List<FavoriteTv>>? {
 
         return favoriteTvDao?.getFavorites()
@@ -70,6 +76,8 @@ class PopularTvRepository(application: Application) {
     }
 
     //////////
+
+    // Delete All DB
 
     fun deleteAllFavoritesDB() {
 
@@ -82,6 +90,8 @@ class PopularTvRepository(application: Application) {
     }
 
     //////////
+
+    // Delete Favorite DB
 
     fun deleteFavoriteDB(id: Int) {
 

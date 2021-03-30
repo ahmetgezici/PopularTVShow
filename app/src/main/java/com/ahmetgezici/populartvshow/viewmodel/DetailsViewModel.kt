@@ -8,7 +8,7 @@ import com.ahmetgezici.populartvshow.utils.datautil.Resource
 
 class DetailsViewModel : ViewModel() {
 
-    val repository = DetailsRepository()
+    private val repository = DetailsRepository()
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -19,6 +19,8 @@ class DetailsViewModel : ViewModel() {
     val detailsLiveData = MutableLiveData<Details>()
 
     ////////
+
+    // Get Details
 
     fun getDetails(
         id: Int,
