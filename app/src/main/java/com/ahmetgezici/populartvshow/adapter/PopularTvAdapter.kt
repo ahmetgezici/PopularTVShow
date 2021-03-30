@@ -37,7 +37,6 @@ class PopularTvAdapter(
         )
     }
 
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val tvShow = tvShowList[position]
@@ -69,13 +68,14 @@ class PopularTvAdapter(
 
             override fun unLiked(likeButton: LikeButton) {
 
-                    viewModel.deleteFavoriteDB(tvShow.id)
+                viewModel.deleteFavoriteDB(tvShow.id)
             }
         })
 
         holder.binding.tvShow.setOnClickListener(View.OnClickListener {
 
-            val detailsFragment = DetailsFragment(tvShow.id, holder.binding.favorite.isLiked,viewModel)
+            val detailsFragment =
+                DetailsFragment(tvShow.id, holder.binding.favorite.isLiked, viewModel)
 
             manager.beginTransaction()
                 .setCustomAnimations(R.anim.fadein, R.anim.fadeout)

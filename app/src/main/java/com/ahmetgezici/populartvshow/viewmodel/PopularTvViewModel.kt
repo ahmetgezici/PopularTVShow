@@ -15,6 +15,12 @@ class PopularTvViewModel(application: Application) : AndroidViewModel(applicatio
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
+    val loading = MutableLiveData<Boolean>()
+
+    val newPageLoading = MutableLiveData<Boolean>()
+
+    ///////////
+
     fun getPopularTv(
         apiKey: String,
         language: String,

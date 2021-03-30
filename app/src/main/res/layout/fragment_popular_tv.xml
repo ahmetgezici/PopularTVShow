@@ -1,14 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/root"
     tools:context=".view.PopularTvFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/popularTvRecycler"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient1"
+            android:gravity="center_vertical">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/allDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="15dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="0dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_all_delete" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="18dp"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:gravity="center"
+                android:text="Popüler TV Showlar"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/refresh"
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/gilroy_bold"
+                android:gravity="center"
+                android:padding="0dp"
+                android:paddingStart="0dp"
+                android:paddingTop="0dp"
+                android:paddingEnd="0dp"
+                android:paddingBottom="0dp"
+                android:text="Yenile"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:visibility="gone"
+                app:backgroundTint="#E31B1B"
+                app:elevation="15dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/popularTvRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="invisible" />
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/newPageProgress"
+                style="@style/Widget.MaterialComponents.CircularProgressIndicator.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_marginBottom="20dp"
+                android:indeterminate="true"
+                android:visibility="gone"
+                app:indicatorColor="#DADADA"
+                app:trackCornerRadius="6dp"
+                app:trackThickness="5dp" />
+
+            <FrameLayout
+                android:id="@+id/loadingProgress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:visibility="visible">
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:indeterminate="true"
+                    app:indicatorColor="#671A9F"
+                    app:trackCornerRadius="6dp"
+                    app:trackThickness="8dp" />
+
+            </FrameLayout>
+
+        </FrameLayout>
+    </LinearLayout>
 </FrameLayout>
