@@ -28,7 +28,7 @@ class PopularTvViewModel(application: Application) : AndroidViewModel(applicatio
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // Database
 
-    fun addFavoriteRepoDB(favoriteTv: FavoriteTv) {
+    fun addFavoriteTvDB(favoriteTv: FavoriteTv) {
         repository.addFavoriteTvDB(favoriteTv)
     }
 

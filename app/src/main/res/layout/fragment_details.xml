@@ -14,7 +14,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <FrameLayout
@@ -94,8 +94,7 @@
                             android:id="@+id/image"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:adjustViewBounds="true"
-                            android:src="@drawable/aaaa" />
+                            android:adjustViewBounds="true"/>
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -106,7 +105,7 @@
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/gilroy_medium"
                         android:gravity="end"
-                        android:text="● Bilim Kurgu &amp; Fantazi ● Aksiyon &amp; Macera ● Dram"
+                        android:text="● ------ ● -------"
                         android:textColor="#FFFFFF"
                         android:textSize="11sp" />
 
@@ -116,7 +115,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:fontFamily="@font/gilroy_extrabold"
-                        android:text="Falcon ve Kış Askeri"
+                        android:text="------- ------ -------"
                         android:textAllCaps="true"
                         android:textColor="#FFFFFF"
                         android:textSize="26sp" />
@@ -125,10 +124,11 @@
                         android:id="@+id/overview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/gilroy_medium"
-                        android:text="The Avengers: End Game'in maceralarının ardından, Sam Wilson ve Bucky Barnes yeteneklerini ve sabırlarını test eden küresel bir macerada bir araya geliyor."
-                        android:textColor="#FFFFFF"
-                        android:textSize="14sp" />
+                        android:justificationMode="inter_word"
+                        android:fontFamily="@font/gilroy_semibold"
+                        android:text="---------- --------- --- --------- ---------------------"
+                        android:textColor="#DDDDDD"
+                        android:textSize="12sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -155,7 +155,7 @@
                                     android:fontFamily="@font/gilroy_bold"
                                     android:text="⬤ Yönetmen:"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="13sp" />
+                                    android:textSize="11sp" />
 
                                 <TextView
                                     android:id="@+id/director"
@@ -164,9 +164,9 @@
                                     android:layout_marginStart="5dp"
                                     android:fontFamily="@font/gilroy_medium"
                                     android:gravity="end"
-                                    android:text="Malcolm Spellman"
+                                    android:text="------ ------"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
 
                             </LinearLayout>
 
@@ -182,18 +182,18 @@
                                     android:fontFamily="@font/gilroy_bold"
                                     android:text="⬤ Yapımcı:"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
 
                                 <TextView
-                                    android:id="@+id/companies"
+                                    android:id="@+id/company"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="5dp"
                                     android:fontFamily="@font/gilroy_medium"
                                     android:gravity="end"
-                                    android:text="Marvel Studios"
+                                    android:text="--------"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
 
                             </LinearLayout>
 
@@ -209,7 +209,7 @@
                                     android:fontFamily="@font/gilroy_bold"
                                     android:text="⬤ Tarih:"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
 
                                 <TextView
                                     android:id="@+id/firstAirDate"
@@ -218,9 +218,9 @@
                                     android:layout_marginStart="5dp"
                                     android:fontFamily="@font/gilroy_medium"
                                     android:gravity="end"
-                                    android:text="2021-03-26"
+                                    android:text="--.--.----"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
 
                             </LinearLayout>
 
@@ -236,18 +236,18 @@
                                     android:fontFamily="@font/gilroy_bold"
                                     android:text="⬤ Ülke:"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
 
                                 <TextView
-                                    android:id="@+id/countries"
+                                    android:id="@+id/country"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="5dp"
                                     android:fontFamily="@font/gilroy_medium"
                                     android:gravity="end"
-                                    android:text="United States of America"
+                                    android:text="----------"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
 
                             </LinearLayout>
 
@@ -263,7 +263,7 @@
                                     android:fontFamily="@font/gilroy_bold"
                                     android:text="⬤ Dil:"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
 
                                 <TextView
                                     android:id="@+id/language"
@@ -272,9 +272,9 @@
                                     android:layout_marginStart="5dp"
                                     android:fontFamily="@font/gilroy_medium"
                                     android:gravity="end"
-                                    android:text="English"
+                                    android:text="--------"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
 
                             </LinearLayout>
 
@@ -290,7 +290,7 @@
                                     android:fontFamily="@font/gilroy_bold"
                                     android:text="⬤ Tip:"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
 
                                 <TextView
                                     android:id="@+id/type"
@@ -299,9 +299,9 @@
                                     android:layout_marginStart="5dp"
                                     android:fontFamily="@font/gilroy_medium"
                                     android:gravity="end"
-                                    android:text="Miniseries"
+                                    android:text="--------"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
 
                             </LinearLayout>
 
@@ -317,7 +317,7 @@
                                     android:fontFamily="@font/gilroy_bold"
                                     android:text="⬤ Sezon Sayısı:"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
 
                                 <TextView
                                     android:id="@+id/totalSeason"
@@ -326,9 +326,9 @@
                                     android:layout_marginStart="5dp"
                                     android:fontFamily="@font/gilroy_medium"
                                     android:gravity="end"
-                                    android:text="1"
+                                    android:text="--"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
 
                             </LinearLayout>
 
@@ -344,7 +344,7 @@
                                     android:fontFamily="@font/gilroy_bold"
                                     android:text="⬤ Bölüm Sayısı:"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
 
                                 <TextView
                                     android:id="@+id/totalEpisode"
@@ -353,9 +353,9 @@
                                     android:layout_marginStart="5dp"
                                     android:fontFamily="@font/gilroy_medium"
                                     android:gravity="end"
-                                    android:text="6"
+                                    android:text="--"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
 
                             </LinearLayout>
 
@@ -412,7 +412,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="bottom"
                                             android:fontFamily="@font/gilroy_black"
-                                            android:text="7"
+                                            android:text="-"
                                             android:textColor="@android:color/white"
                                             android:textSize="21sp" />
 
@@ -422,9 +422,9 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="bottom"
                                             android:fontFamily="@font/gilroy_extrabold"
-                                            android:text=",8"
+                                            android:text=",-"
                                             android:textColor="@android:color/white"
-                                            android:textSize="13sp" />
+                                            android:textSize="12sp" />
 
                                     </LinearLayout>
 
@@ -436,12 +436,12 @@
                                         android:background="#FFFFFF" />
 
                                     <TextView
-                                        android:id="@+id/totalVote"
+                                        android:id="@+id/voteCount"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/gilroy_black"
                                         android:gravity="center"
-                                        android:text="2199 Kişi"
+                                        android:text="---- Kişi"
                                         android:textColor="@android:color/white"
                                         android:textSize="9sp" />
 
@@ -459,7 +459,7 @@
                                     android:id="@+id/inProductionStatus"
                                     android:layout_width="10dp"
                                     android:layout_height="10dp"
-                                    app:cardBackgroundColor="@android:color/holo_green_light"
+                                    app:cardBackgroundColor="#FFFFFF"
                                     app:cardCornerRadius="30dp" />
 
                                 <TextView
@@ -469,9 +469,9 @@
                                     android:layout_marginStart="5dp"
                                     android:fontFamily="@font/gilroy_medium"
                                     android:gravity="end"
-                                    android:text="Çekimde"
+                                    android:text="-------"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="13sp" />
+                                    android:textSize="12sp" />
 
                             </LinearLayout>
                         </LinearLayout>
@@ -485,7 +485,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="60dp"
                         android:layout_marginEnd="15dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="50dp"
                         android:clickable="true"
                         android:focusable="true"
                         app:cardCornerRadius="12dp"
@@ -511,6 +511,7 @@
                 <FrameLayout
                     android:id="@+id/loadingProgress"
                     android:layout_width="match_parent"
+                    android:visibility="visible"
                     android:layout_height="match_parent"
                     android:background="#FFFFFF">
 

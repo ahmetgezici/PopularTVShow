@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.ahmetgezici.populartvshow.R
 import com.ahmetgezici.populartvshow.adapter.PopularTvAdapter
 import com.ahmetgezici.populartvshow.api.ApiClient
 import com.ahmetgezici.populartvshow.databinding.FragmentPopularTvBinding
@@ -17,6 +18,7 @@ import com.ahmetgezici.populartvshow.model.populartv.PopularTv
 import com.ahmetgezici.populartvshow.utils.datautil.Resource
 import com.ahmetgezici.populartvshow.utils.datautil.Status
 import com.ahmetgezici.populartvshow.viewmodel.PopularTvViewModel
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class PopularTvFragment : Fragment() {
 
@@ -61,7 +63,12 @@ class PopularTvFragment : Fragment() {
                             val favoriteList = ArrayList<FavoriteTv>()
 
                             popularTvAdapter =
-                                PopularTvAdapter(results, favoriteList, viewModel)
+                                PopularTvAdapter(
+                                    results,
+                                    favoriteList,
+                                    viewModel,
+                                    requireActivity().supportFragmentManager
+                                )
                             binding.popularTvRecycler.layoutManager =
                                 LinearLayoutManager(requireContext())
                             binding.popularTvRecycler.adapter = popularTvAdapter
@@ -119,6 +126,15 @@ class PopularTvFragment : Fragment() {
                                 }
 
                             } else if (popularTVRes.status == Status.ERROR) { //////////////////////
+
+                                MaterialAlertDialogBuilder(
+                                    requireContext(), R.style.MaterialAlertDialog_Rounded
+                                )
+                                    .setTitle("Hata")
+                                    .setMessage("Bağlanılamadı!")
+                                    .setCancelable(false)
+                                    .setPositiveButton("Tamam", null)
+                                    .show()
 
                             }
 

@@ -16,6 +16,10 @@ class DetailsViewModel : ViewModel() {
 
     /////////
 
+    val detailsLiveData = MutableLiveData<Details>()
+
+    ////////
+
     fun getDetails(
         id: Int,
         apiKey: String,
