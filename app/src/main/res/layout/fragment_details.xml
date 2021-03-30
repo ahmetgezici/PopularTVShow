@@ -1,13 +1,531 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient8"
     tools:context=".view.DetailsFragment">
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        android:fillViewport="true">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_marginStart="15dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="30dp"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_left_arrow" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginBottom="18dp"
+                    android:fontFamily="@font/gilroy_extrabold"
+                    android:gravity="center"
+                    android:text="Detaylar"
+                    android:textAllCaps="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+                <com.like.LikeButton
+                    android:id="@+id/favorite"
+                    android:layout_width="43dp"
+                    android:layout_height="43dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginEnd="15dp"
+                    android:layerType="hardware"
+                    app:icon_size="33dp"
+                    app:icon_type="star"
+                    app:like_drawable="@drawable/ic_star"
+                    app:unlike_drawable="@drawable/ic_star_unlike" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/detailsLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:visibility="invisible"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="3dp"
+                        app:cardCornerRadius="12dp">
+
+                        <ImageView
+                            android:id="@+id/image"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/aaaa" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/genres"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/gilroy_medium"
+                        android:gravity="end"
+                        android:text="● Bilim Kurgu &amp; Fantazi ● Aksiyon &amp; Macera ● Dram"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:fontFamily="@font/gilroy_extrabold"
+                        android:text="Falcon ve Kış Askeri"
+                        android:textAllCaps="true"
+                        android:textColor="#FFFFFF"
+                        android:textSize="26sp" />
+
+                    <TextView
+                        android:id="@+id/overview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/gilroy_medium"
+                        android:text="The Avengers: End Game'in maceralarının ardından, Sam Wilson ve Bucky Barnes yeteneklerini ve sabırlarını test eden küresel bir macerada bir araya geliyor."
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:paddingTop="15dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/gilroy_bold"
+                                    android:text="⬤ Yönetmen:"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:id="@+id/director"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:fontFamily="@font/gilroy_medium"
+                                    android:gravity="end"
+                                    android:text="Malcolm Spellman"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/gilroy_bold"
+                                    android:text="⬤ Yapımcı:"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:id="@+id/companies"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:fontFamily="@font/gilroy_medium"
+                                    android:gravity="end"
+                                    android:text="Marvel Studios"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/gilroy_bold"
+                                    android:text="⬤ Tarih:"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:id="@+id/firstAirDate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:fontFamily="@font/gilroy_medium"
+                                    android:gravity="end"
+                                    android:text="2021-03-26"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/gilroy_bold"
+                                    android:text="⬤ Ülke:"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:id="@+id/countries"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:fontFamily="@font/gilroy_medium"
+                                    android:gravity="end"
+                                    android:text="United States of America"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/gilroy_bold"
+                                    android:text="⬤ Dil:"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:id="@+id/language"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:fontFamily="@font/gilroy_medium"
+                                    android:gravity="end"
+                                    android:text="English"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/gilroy_bold"
+                                    android:text="⬤ Tip:"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:id="@+id/type"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:fontFamily="@font/gilroy_medium"
+                                    android:gravity="end"
+                                    android:text="Miniseries"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/gilroy_bold"
+                                    android:text="⬤ Sezon Sayısı:"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:id="@+id/totalSeason"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:fontFamily="@font/gilroy_medium"
+                                    android:gravity="end"
+                                    android:text="1"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/gilroy_bold"
+                                    android:text="⬤ Bölüm Sayısı:"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:id="@+id/totalEpisode"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:fontFamily="@font/gilroy_medium"
+                                    android:gravity="end"
+                                    android:text="6"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:layout_width="145dp"
+                                android:layout_height="145dp"
+                                android:layout_marginEnd="-4dp"
+                                android:padding="10dp">
+
+                                <com.timqi.sectorprogressview.ColorfulRingProgressView
+                                    android:id="@+id/voteProgress"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    app:bgColor="#e1e1e1"
+                                    app:fgColorEnd="#5B86E5"
+                                    app:fgColorStart="#36D1DC"
+                                    app:percent="0"
+                                    app:startAngle="0"
+                                    app:strokeWidth="8dp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="3dp"
+                                        android:fontFamily="@font/gilroy_extrabold"
+                                        android:text="Üye Puanları"
+                                        android:textAlignment="center"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="9dp" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/votePrimary"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="bottom"
+                                            android:fontFamily="@font/gilroy_black"
+                                            android:text="7"
+                                            android:textColor="@android:color/white"
+                                            android:textSize="21sp" />
+
+                                        <TextView
+                                            android:id="@+id/voteSecondary"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="bottom"
+                                            android:fontFamily="@font/gilroy_extrabold"
+                                            android:text=",8"
+                                            android:textColor="@android:color/white"
+                                            android:textSize="13sp" />
+
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="20dp"
+                                        android:layout_height="0.8dp"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp"
+                                        android:background="#FFFFFF" />
+
+                                    <TextView
+                                        android:id="@+id/totalVote"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/gilroy_black"
+                                        android:gravity="center"
+                                        android:text="2199 Kişi"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="9sp" />
+
+                                </LinearLayout>
+                            </FrameLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:id="@+id/inProductionStatus"
+                                    android:layout_width="10dp"
+                                    android:layout_height="10dp"
+                                    app:cardBackgroundColor="@android:color/holo_green_light"
+                                    app:cardCornerRadius="30dp" />
+
+                                <TextView
+                                    android:id="@+id/inProduction"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:fontFamily="@font/gilroy_medium"
+                                    android:gravity="end"
+                                    android:text="Çekimde"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="13sp" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/goWebSite"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="60dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="12dp"
+                        app:rippleColor="#DDDDDD">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/gradient1"
+                            android:fontFamily="@font/gilroy_black"
+                            android:paddingTop="9dp"
+                            android:paddingBottom="9dp"
+                            android:text="Web Sayfasına Git"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="#DCDCDC"
+                            android:textSize="15sp" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/loadingProgress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF">
+
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        app:indicatorColor="#671A9F"
+                        app:trackCornerRadius="6dp"
+                        app:trackThickness="8dp" />
+
+                </FrameLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

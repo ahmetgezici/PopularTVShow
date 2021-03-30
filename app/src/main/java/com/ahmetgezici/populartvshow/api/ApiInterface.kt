@@ -1,5 +1,6 @@
 package com.ahmetgezici.populartvshow.api
 
+import com.ahmetgezici.populartvshow.model.details.Details
 import com.ahmetgezici.populartvshow.model.populartv.PopularTv
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
@@ -20,7 +21,7 @@ interface ApiInterface {
         @Path("id") id: Int,
         @Query("api_key") apiKey: String,
         @Query("language") language: String
-    )
+    ):Single<Details>
 
 
 }

@@ -96,4 +96,7 @@ dependencies {
     // LikeButton
     implementation 'com.github.jd-alexander:LikeButton:0.2.3'
 
+    // SectorProgressView
+    implementation 'com.timqi.sectorprogressview:library:2.0.1'
+
 }
